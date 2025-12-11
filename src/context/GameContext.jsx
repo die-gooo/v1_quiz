@@ -60,7 +60,7 @@ export function GameProvider({ children }) {
   // Add a new evening
   const addEvening = (name, date) => {
     const newEvening = {
-      id: Date.now(),
+      id: Date.now() + Math.random(), // Prevent collisions
       name,
       date,
       createdAt: new Date().toISOString(),
@@ -77,7 +77,7 @@ export function GameProvider({ children }) {
     );
 
     const newVote = {
-      id: existingVoteIndex >= 0 ? votes[existingVoteIndex].id : Date.now(),
+      id: existingVoteIndex >= 0 ? votes[existingVoteIndex].id : Date.now() + Math.random(),
       eveningId,
       userId: activeUser.id,
       ratings, // { cibo: 8, location: 7, prezzoQualita: 9 }
