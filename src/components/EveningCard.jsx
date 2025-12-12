@@ -27,6 +27,7 @@ function EveningCard({ evening, onVoteClick, onDelete, hasVoted }) {
           onClick={onDelete}
           className="p-2 text-slate-400 hover:text-red-500 hover:bg-slate-700 rounded-lg transition-all"
           title="Elimina serata"
+          aria-label="Elimina serata"
         >
           <Trash2 size={20} />
         </button>
