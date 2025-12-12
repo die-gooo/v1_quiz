@@ -9,8 +9,8 @@ function VoteForm() {
   const { eveningId } = useParams();
   const { activeUser, evenings, getUserVote, submitVote } = useGame();
   
-  const evening = evenings.find(e => e.id === parseInt(eveningId));
-  const existingVote = getUserVote(parseInt(eveningId));
+  const evening = evenings.find(e => e.id === parseFloat(eveningId));
+  const existingVote = getUserVote(parseFloat(eveningId));
   
   const [ratings, setRatings] = useState(
     existingVote?.ratings || { cibo: 5, location: 5, prezzoQualita: 5 }
@@ -30,7 +30,7 @@ function VoteForm() {
     e.preventDefault();
     setIsSaving(true);
     
-    submitVote(parseInt(eveningId), ratings);
+    submitVote(parseFloat(eveningId), ratings);
     
     setTimeout(() => {
       setIsSaving(false);
