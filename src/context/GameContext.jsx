@@ -68,6 +68,12 @@ export function GameProvider({ children }) {
     setEvenings([...evenings, newEvening]);
   };
 
+  // Remove an evening and its associated votes
+  const removeEvening = (eveningId) => {
+    setEvenings(evenings.filter(e => e.id !== eveningId));
+    setVotes(votes.filter(v => v.eveningId !== eveningId));
+  };
+
   // Submit or update a vote
   const submitVote = (eveningId, ratings) => {
     if (!activeUser) return;
@@ -174,6 +180,7 @@ export function GameProvider({ children }) {
     login,
     logout,
     addEvening,
+    removeEvening,
     submitVote,
     getUserVote,
     getEveningVotes,

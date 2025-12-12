@@ -7,7 +7,7 @@ import { Plus, Trophy, LogOut, Calendar } from 'lucide-react';
 
 function Dashboard() {
   const navigate = useNavigate();
-  const { activeUser, evenings, addEvening, getUserVote, logout } = useGame();
+  const { activeUser, evenings, addEvening, removeEvening, getUserVote, logout } = useGame();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newEveningName, setNewEveningName] = useState('');
   const [newEveningDate, setNewEveningDate] = useState('');
@@ -30,6 +30,12 @@ function Dashboard() {
 
   const handleVoteClick = (eveningId) => {
     navigate(`/vote/${eveningId}`);
+  };
+
+  const handleDeleteEvening = (eveningId, eveningName) => {
+    if (window.confirm(`Sei sicuro di voler eliminare "${eveningName}"? Questa azione eliminerà anche tutti i voti associati.`)) {
+      removeEvening(eveningId);
+    }
   };
 
   const handleLogout = () => {
@@ -110,6 +116,7 @@ function Dashboard() {
                     key={evening.id}
                     evening={evening}
                     onVoteClick={() => handleVoteClick(evening.id)}
+                    onDelete={() => handleDeleteEvening(evening.id, evening.name)}
                     hasVoted={!!userVote}
                   />
                 );
