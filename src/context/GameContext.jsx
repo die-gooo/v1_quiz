@@ -4,12 +4,12 @@ const GameContext = createContext();
 
 // Fixed 6 participants with emojis
 const INITIAL_USERS = [
-  { id: 1, name: 'Marco', avatar: '🍕' },
-  { id: 2, name: 'Sofia', avatar: '🍷' },
-  { id: 3, name: 'Luca', avatar: '🍝' },
-  { id: 4, name: 'Giulia', avatar: '🥘' },
-  { id: 5, name: 'Andrea', avatar: '🍰' },
-  { id: 6, name: 'Chiara', avatar: '☕' },
+  { id: 1, name: 'Filippo', avatar: '🍕' },
+  { id: 2, name: 'Giulia B', avatar: '🍷' },
+  { id: 3, name: 'Teresa', avatar: '🍝' },
+  { id: 4, name: 'Giulia I', avatar: '🥘' },
+  { id: 5, name: 'Paolo', avatar: '🍰' },
+  { id: 6, name: 'Alberto', avatar: '☕' },
 ];
 
 const STORAGE_KEY = 'v1_quiz_state';
